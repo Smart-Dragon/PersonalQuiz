@@ -38,7 +38,7 @@ final class ResultsViewController: UIViewController {
         let animalCounts = counts.sorted { $0.1 > $1.1 }
         
         // unwrap осознанный по заданию ответы точно будут.
-        // могут быть равные результеты, но их обработка не требовалась
+        // могут быть равные результаты, но их обработка не требовалась
         return animalCounts.first!.key
     }
 
