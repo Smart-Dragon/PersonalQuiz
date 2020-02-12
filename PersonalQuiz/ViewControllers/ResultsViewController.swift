@@ -9,10 +9,6 @@
 import UIKit
 
 final class ResultsViewController: UIViewController {
-    
-    // 1. Передать сюда массив с ответами
-    // 2. Определить наиболее часто встречающийся тип животного
-    // 3. Отобразить результаты в соотвствии с этим животным
 
     // MARK: - IBActions
     
@@ -29,8 +25,7 @@ final class ResultsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.setHidesBackButton(true, animated: false)
-        
-        loadResult(type: getResultAnimalType())
+        showResult(type: getResultAnimalType())
     }
     
     // MARK: - Private Methods
@@ -40,13 +35,13 @@ final class ResultsViewController: UIViewController {
         for answer in answers {
             counts[answer.type] = (counts[answer.type] ?? 0) + 1
         }
-        let animalsCount = counts.sorted { $0.1 > $1.1 }
+        let animalCounts = counts.sorted { $0.1 > $1.1 }
         
         // unwrap осознанный по заданию ответы точно будут.
-        return animalsCount.first!.key
+        return animalCounts.first!.key
     }
 
-    private func loadResult(type: AnimalType) {
+    private func showResult(type: AnimalType) {
         animalTitle.text = String(type.rawValue)
         animalDescription.text = type.difinition
     }
